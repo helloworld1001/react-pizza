@@ -1,14 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { clearItems } from '../redux/slices/cartSlice';
+import { clearItems, selectCart } from '../redux/slices/cartSlice';
 
 import CartPizzaBlock from '../components/CartPizzaBlock';
 import CartEmpty from '../components/CartEmpty';
 
+
 const Cart = () => {
   const dispatch = useDispatch();
-  const { cartItems, totalPrice, goodsAmount} = useSelector(state => state.cart);  
+  const { cartItems, totalPrice, goodsAmount} = useSelector(selectCart);  
 
   return (
     <div className="container container--cart">
