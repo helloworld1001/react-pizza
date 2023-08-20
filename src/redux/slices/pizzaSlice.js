@@ -42,4 +42,5 @@ export const fetchPizzas = createAsyncThunk(
 
 export const selectPizzaData = state => state.pizza
 
+
 export default pizzaSlice.reducer;
