@@ -28,15 +28,16 @@ const CartPizzaBlock = ({id, title, price, imageUrl, type, size}) => {
     }
 
     return (
-        <Link to={`/pizza/${id}`}>
-        <div className="cart__item">
+      <div className="cart__item">
+          <Link to={`/pizza/${id}`}>
             <div className="cart__item-img">
               <img
                 className="pizza-block__image"
                 src={imageUrl}
                 alt="Pizza"
-              />
+                />
             </div>
+                </Link>
             <div className="cart__item-info">
               <h3>{title}</h3>
               <p>{type} тесто, {size} см.</p>
@@ -86,7 +87,6 @@ const CartPizzaBlock = ({id, title, price, imageUrl, type, size}) => {
               </div>
             </div>
           </div>
-          </Link>
     );
 }
 

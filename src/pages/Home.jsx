@@ -1,4 +1,3 @@
-import React from 'react';
 import qs from 'qs';
 import { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
