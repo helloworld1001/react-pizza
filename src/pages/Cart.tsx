@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { clearItems, selectCart } from '../redux/slices/cartSlice';
@@ -6,7 +7,7 @@ import CartPizzaBlock from '../components/CartPizzaBlock';
 import CartEmpty from '../components/CartEmpty';
 
 
-const Cart = () => {
+const Cart: FC = () => {
   const dispatch = useDispatch();
   const { cartItems, totalPrice, goodsAmount} = useSelector(selectCart);  
 
@@ -77,7 +78,7 @@ const Cart = () => {
           </div>
         </div>
         <div className="content__items">
-          {cartItems.map(item => <CartPizzaBlock key={item.id} {...item}/>)}
+          {cartItems.map((item: any) => <CartPizzaBlock key={item.id} {...item}/>)}
         </div>
         <div className="cart__bottom">
           <div className="cart__bottom-details">
