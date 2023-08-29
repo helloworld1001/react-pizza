@@ -21,13 +21,13 @@ export const sortList: SortListItem[] = [
 const Sort: FC = () => {
   const dispatch = useDispatch();
   const { sort } = useSelector(selectFilter);
-  const [open, setOpen] = useState<boolean>(false);
+  const [open, setOpen] = useState(false);
   const sortRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleClickOutside = (event: any) => {
+    const handleClickOutside = (event: MouseEvent) => {
       const eventPath = event.composedPath();
-      if (!eventPath.includes(sortRef.current)) {
+      if (sortRef.current && !eventPath.includes(sortRef.current)) {
         setOpen(false);
       }
     };

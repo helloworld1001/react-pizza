@@ -101,7 +101,7 @@ const Home: FC = () => {
       ) : (
         <div className="content__items">{status === 'loading' ? skeletons : pizzas}</div>
       )}
-      <Pagination currentPage={currentPage} onPageChange={(number: number) => onChangePage(number)} />
+      <Pagination currentPage={currentPage} onPageChange={onChangePage} />
     </div>
   );
 };
