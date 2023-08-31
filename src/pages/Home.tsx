@@ -1,5 +1,5 @@
 import qs from 'qs';
-import { FC, useEffect, useRef } from 'react';
+import { FC, useCallback, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from '../redux/store';
@@ -24,9 +24,9 @@ const Home: FC = () => {
   const { searchValue, categoryId, sort, currentPage } = useSelector(selectFilter);
   const sortType = sort.sortProperty;
   
-  const changeCategory = (id: number) => {
+  const changeCategory = useCallback((id: number) => {
     dispatch(setCategoryId(id));
-  };
+  }, []);
 
   const onChangePage = (num: number) => {
     dispatch(setCurrentPage(num));
@@ -94,7 +94,7 @@ const Home: FC = () => {
     <div className="container">
       <div className="content__top">
         <Categories value={categoryId} onChangeCategory={changeCategory} />
-        <Sort />
+        <Sort sort={sort}/>
       </div>
       <h2 className="content__title">Все пиццы</h2>
       {status === 'error' ? (
