@@ -1,10 +1,8 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { FC } from 'react';
 
-import { selectCartItemById } from '../../redux/slices/cartSlice';
-
-import { addItem, minusItem, removeItem } from '../../redux/slices/cartSlice';
+import { CartItem, addItem, minusItem, removeItem } from '../../redux/slices/cartSlice';
 
 type CartPizzaBlockProps = {
   id: number;
@@ -13,17 +11,17 @@ type CartPizzaBlockProps = {
   imageUrl: string;
   type: string;
   size: number;
+  count: number
 };
 
-const CartPizzaBlock: FC<CartPizzaBlockProps> = ({ id, title, price, imageUrl, type, size }) => {
-  const { count } = useSelector(selectCartItemById(id));
+const CartPizzaBlock: FC<CartPizzaBlockProps> = ({ id, title, price, imageUrl, type, size, count }) => {
 
   const dispatch = useDispatch();
 
   const onClickAdd = () => {
     const item = {
       id,
-    };
+    } as CartItem;
     dispatch(addItem(item));
   };
 

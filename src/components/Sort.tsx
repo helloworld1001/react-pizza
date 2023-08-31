@@ -3,13 +3,9 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { setSort, selectFilter } from '../redux/slices/filterSlice';
 
+import { SortItemType } from '../redux/slices/filterSlice';
 
-type SortListItem = {
-  name: string,
-  sortProperty: string
-}
-
-export const sortList: SortListItem[] = [
+export const sortList: SortItemType[] = [
   { name: 'популярности (asc)', sortProperty: 'rating' },
   { name: 'популярности (desc)', sortProperty: '-rating' },
   { name: 'цене (asc)', sortProperty: 'price' },
@@ -37,7 +33,7 @@ const Sort: FC = () => {
     return () => document.body.removeEventListener('click', handleClickOutside);
   }, []);
 
-  const onClickListItem = (obj: SortListItem) => {
+  const onClickListItem = (obj: SortItemType) => {
     dispatch(setSort(obj));
     setOpen(false);
   };

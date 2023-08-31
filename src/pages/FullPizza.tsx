@@ -5,8 +5,8 @@ import { useParams, useNavigate } from 'react-router-dom';
 
 const FullPizza: FC = () => {
   const [pizza, setPizza] = useState<{
-    imageUrl : string,
-    title : string,
+    imageUrl : string;
+    title : string;
     price: number
   }>();
   const { id } = useParams();
