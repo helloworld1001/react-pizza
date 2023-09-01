@@ -9,11 +9,14 @@ import CartEmpty from '../components/CartEmpty';
 
 const Cart: FC = () => {
   const dispatch = useDispatch();
-  const { cartItems, totalPrice, goodsAmount} = useSelector(selectCart);  
+  const { cartItems, totalPrice} = useSelector(selectCart); 
 
+  const goodsAmount = cartItems.reduce((sum: number, item: any) => sum + item.count, 0);
+
+  
   return (
     <div className="container container--cart">
-      {goodsAmount ? 
+      {cartItems.length ? 
       <div className="cart">
         <div className="cart__top">
           <h2 className="content__title">
